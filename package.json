@@ -1,0 +1,34 @@
+{
+  "name": "gractor_assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettify": "prettier --write *.js **/*.js **/**/*.js",
+    "nodemon": "nodemon server.js",
+    "start:all": "run-s prettify nodemon",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DongYoung-dev/gractor_assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DongYoung-dev/gractor_assignment/issues"
+  },
+  "homepage": "https://github.com/DongYoung-dev/gractor_assignment#readme",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.7"
+  }
+}
