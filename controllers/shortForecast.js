@@ -7,6 +7,16 @@ const regionXY = fs.readFileSync('datas/regionXY.json', 'utf8')
 
 const region = ['서울특별시', '경기도', '제주특별자치도']
 
+function getGridXY(location) {
+    const target = JSON.parse(regionXY).find(
+        ({ level1, level2, level3 }) =>
+            location === `${level1} ${level2} ${level3}` ||
+            location === `${level1} ${level2}` ||
+            location === `${level1}`
+    )
+    return target ? { gridX: target.gridX, gridY: target.gridY } : null
+}
+
 async function getSf(req, res) {
     const serviceKey = process.env.serviceKey
     const base_date = moment().format('YYYYMMDD')
@@ -14,12 +24,8 @@ async function getSf(req, res) {
 
     try {
         for (let i = 0; i < region.length; i++) {
-            const nx = JSON.parse(regionXY).find(
-                (x) => x.region == region[i]
-            ).x_value
-            const ny = JSON.parse(regionXY).find(
-                (x) => x.region == region[i]
-            ).y_value
+            const nx = getGridXY(region[i]).gridX
+            const ny = getGridXY(region[i]).gridY
 
             const sf = await axios({
                 method: 'GET',

@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const Router = require('./routes')
-const port = 3000
+const port = process.env.PORT
 
 const connect = require('./schemas')
 connect()
