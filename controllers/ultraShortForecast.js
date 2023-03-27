@@ -65,9 +65,19 @@ async function getUsf(req, res) {
 async function showUsf(req, res) {
     try {
         const data = await UsfData.find()
+        
+        const parsedData = data.map(e => ({
+            _id: e._id,
+            region: e.region,
+            nx: e.nx,
+            ny: e.ny,
+            baseDate: e.baseDate,
+            baseTime: e.baseTime,
+            foreCast: JSON.parse(e.foreCast)
+        }))
 
         res.status(200).json({
-            data,
+            parsedData,
         })
     } catch (error) {
         console.log(error)
