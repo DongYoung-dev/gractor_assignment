@@ -10,5 +10,6 @@ API 정의서
 -> sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime 명령어를 통해 타임존을 KST 시간으로 변경
 <br/>
 2. 세부지역 추가를 위한 함수 추가
+
 ![image](https://user-images.githubusercontent.com/86117661/227844182-44b5c32a-6276-4de0-887f-24d89ea46157.png)
 
